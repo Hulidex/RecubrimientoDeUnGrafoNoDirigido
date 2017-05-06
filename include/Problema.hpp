@@ -16,6 +16,7 @@ public:
   Problema();
   Problema(const Problema &pr);
   Problema &operator=(const Problema &pr);
+  unsigned int get(unsigned int fil, unsigned int col) const;
 
 
   friend ifstream &operator>>(ifstream &in, Problema &pr);

@@ -69,3 +69,10 @@ Problema &Problema::operator=(const Problema &pr)
 
   return *this;
 }
+
+unsigned int Problema::get(unsigned int fil, unsigned int col) const
+{
+  if (fil < col)
+    return this->m[col][fil];
+  else return this->m[fil][col];
+}
