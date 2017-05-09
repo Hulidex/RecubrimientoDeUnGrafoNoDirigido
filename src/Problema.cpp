@@ -16,13 +16,13 @@ ifstream &operator>>(ifstream &in, Problema &pr)
   in >> pr.n;//leemos filas
 
 
-  pr.m = vector<vector<unsigned int> >(pr.n);
+  pr.m = vector<vector<int> >(pr.n);
 
   for (int i = pr.n-1; i >= 0; --i)//reservamos de abajo hacia arriba la matriz
-    pr.m[i] = vector<unsigned int>( pr.n - (pr.n-(i+1)) , 0);
+    pr.m[i] = vector<int>( pr.n - (pr.n-(i+1)) , 0);
 
-  for (unsigned int i = 0; i < pr.n && !in.eof(); ++i)
-    for (unsigned int k = 0; k <= i && !in.eof(); ++k)
+  for (int i = 0; i < pr.n && !in.eof(); ++i)
+    for (int k = 0; k <= i && !in.eof(); ++k)
       in >> pr.m[i][k];
 
 
@@ -33,13 +33,13 @@ ifstream &operator>>(ifstream &in, Problema &pr)
 ostream &operator<<(ostream &out, const Problema &pr)
 {
   out << "\t";
-  for (unsigned int i = 0; i <  pr.n; ++i)
+  for (int i = 0; i <  pr.n; ++i)
     out << i << "\t";
   out << endl;
 
-  for (unsigned int i = 0; i < pr.n; ++i){
+  for (int i = 0; i < pr.n; ++i){
     out << i << "\t";
-    for (unsigned int k = 0; k <=i; ++k)
+    for (int k = 0; k <=i; ++k)
       out << pr.m[i][k] << "\t";
 
     out << endl;
@@ -70,14 +70,14 @@ Problema &Problema::operator=(const Problema &pr)
   return *this;
 }
 
-unsigned int Problema::getElemento(unsigned int fil, unsigned int col) const
+int Problema::getElemento(int fil, int col) const
 {
   if (fil < col)
     return this->m[col][fil];
   else return this->m[fil][col];
 }
 
-unsigned int Problema::getTamanio() const
+int Problema::getTamanio() const
 {
   return this->n;
 }
