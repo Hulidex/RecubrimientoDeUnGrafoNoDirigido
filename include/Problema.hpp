@@ -9,14 +9,17 @@ using namespace std;
 class Problema
 {
 private:
-  vector<vector<unsigned int> > m;
-  unsigned int n;//filas columnas matriz
+  vector<vector<unsigned int> > m;//matriz Triangular
+  unsigned int n;//tamaño filas/columnas matriz Triangular
 
 public:
   Problema();
   Problema(const Problema &pr);
   Problema &operator=(const Problema &pr);
-  unsigned int get(unsigned int fil, unsigned int col) const;
+  
+  unsigned int getElemento(unsigned int fil, unsigned int col) const;
+  unsigned int getTamanio() const;
+  void CargarDesdeFichero(const char* file_name);
 
 
   friend ifstream &operator>>(ifstream &in, Problema &pr);

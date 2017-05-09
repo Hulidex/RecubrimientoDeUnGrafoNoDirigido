@@ -70,9 +70,22 @@ Problema &Problema::operator=(const Problema &pr)
   return *this;
 }
 
-unsigned int Problema::get(unsigned int fil, unsigned int col) const
+unsigned int Problema::getElemento(unsigned int fil, unsigned int col) const
 {
   if (fil < col)
     return this->m[col][fil];
   else return this->m[fil][col];
+}
+
+unsigned int Problema::getTamanio() const
+{
+  return this->n;
+}
+
+
+void Problema::CargarDesdeFichero(const char* file_name)
+{
+
+  ifstream is(file_name, ifstream::in);
+  is >> *this;
 }
